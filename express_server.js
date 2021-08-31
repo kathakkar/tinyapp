@@ -39,15 +39,18 @@ app.get("/urls/new", (req, res) => {
     
 
 app.get("/u/:shortURL", (req, res) => {
-  // console.log(req.params.shortURL);
-  // const templateVars = { shortURL: req.params.shortURL, longURL: urlDatabase[req.params.shortURL] };
-  // res.render("urls_show", templateVars);
-//  console.log(urlDatabase[req.params.shortURL]);
   if(urlDatabase[req.params.shortURL] != undefined){
     res.redirect(`${urlDatabase[req.params.shortURL]}`);
   } else {
     res.send("404 Page Not Found");
   }
+  
+});
+
+app.post("/urls/:shortURL/delete", (req, res) => {
+
+  delete urlDatabase[req.params.shortURL];
+  res.redirect("/urls");
   
 });
 
