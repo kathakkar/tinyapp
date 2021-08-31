@@ -9,8 +9,15 @@ const urlDatabase = {
   "9sm5xK": "http://www.google.com"
 };
 
+//Route to home PAGE
 app.get("/", (req, res) => {
   res.send("Hello!");
+});
+
+app.get("/urls/:shortURL", (req, res) => {
+  console.log(req.params.shortURL);
+  const templateVars = { shortURL: req.params.shortURL, longURL: urlDatabase[req.params.shortURL] };
+  res.render("urls_show", templateVars);
 });
 
 app.get("/urls", (req, res) => {
