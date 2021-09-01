@@ -10,12 +10,14 @@
         <a class="nav-item nav-link" href="/urls">My URLs</a>
         <a class="nav-item nav-link" href="/urls/new">Create New URL</a>
       </div>
-      <div>
+      <div class="collapse navbar-collapse ">
         
           <% if(username) { %>
-            <form method="POST" action="logout"><label>Logged In As : <%=username %></label> <button type="submit">Logout</button></form>
+            <form method="POST" action="/urls/logout" style="margin-left: auto;display:flex;margin-bottom:0px ;"><label class="nav-item nav-link" >Logged In As : <%=username %></label> <button type="submit" class="nav-item nav-link" style="background-color: #28a745;border: 2px solid black;
+              border-radius: 5px;">Logout</button></form>
           <% } else { %>
-            <form method="POST" action="login"><input name="userName" text="Username"> <button type="submit">Login</button></form>
+            <form method="POST" action="login" style="margin-left: auto;display: flex;margin-bottom: 0px;"><input name="userName" placeholder="Username" style="border: 2px solid black !important;
+              border-radius: 5px;margin-right: 5px;padding-left: 10px;"> <button type="submit" class="nav-item nav-link" style="background-color: #28a745;border: 2px solid black;border-radius: 5px;">Login</button></form>
           <% } %>
         
       </div>
