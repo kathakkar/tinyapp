@@ -32,7 +32,7 @@ app.post("/login",(req,res) => {
 });
 
 //Login POST Operation
-app.post("/logout",(req,res) => {
+app.post("/urls/logout",(req,res) => {
   res.clearCookie('userName');
   res.redirect("/urls");
 });
