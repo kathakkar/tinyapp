@@ -1,6 +1,8 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 var cookieParser = require('cookie-parser');
+//const { response } = require("express");
+const bcrypt = require('bcrypt');
 const { response } = require("express");
 const app = express();
 const PORT = 8080; // default port 8080
@@ -93,13 +95,14 @@ app.post("/login",(req,res) => {
     const foundUser = getUserByEmail(req.body.email);
   
     if (foundUser) {
-      if (foundUser.password === req.body.password){
+      
+      const passwordMatchCheck = bcrypt.compareSync(req.body.password, foundUser.password);
+      if (passwordMatchCheck) {
           res.cookie("user_id", foundUser['id']);
           res.redirect("/urls");
       } else {
           res.send("Password no match, click here <a href='/login'>login</a> to go back.");
       }
-
     } else {
           res.send("403 - no user found , click here <a href='/login'>login</a> to go back Or <a href='/register'>Register</a>")
     }
@@ -133,14 +136,16 @@ app.get("/register",(req,res) => {
 app.post("/register",(req,res) => {
   const id = generateRandomString();
   const email = req.body.email;
-  const password = req.body.password;
+  let password = req.body.password;
   if(email != "" && password!=""){
     const foundUser = getUserByEmail(email);
     if(foundUser){
       res.send("404 - User with same email address already exist, Click here <a href='/register'>Register</a> to go back to registration page");
     }
     else {
+      password = bcrypt.hashSync(password, 10);
       users[id] = {id, email, password};
+      console.log(users);
       res.cookie("user_id", id);
       res.redirect("/urls");
     }
