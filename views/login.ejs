@@ -7,28 +7,23 @@
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
   <title>TinyApp</title>
 </head>
 
 <body>
-  <main style="margin: 1em;">
-    <h3>Login</h3>
+  <main style="max-width: 660px;  margin: auto;margin-top: 50px;">
+    <h3>LOGIN</h3>
     <form method="post" action="/login">
-    <table class="table">    
-      <tbody>
-          <tr>
-            <td>Email</td>
-            <td><input type="email" name="email"></td>
-          </tr>
-          <tr>
-            <td> Password</td>
-            <td> <input type="password" name="password"></td>
-          </tr>
-          <tr>
-            <td colspan="2"><button type="submit" class="btn btn-primary">Login</button></td>
-          </tr>
-      </tbody>
-    </table>
+
+    <div class="container">   
+      <label>Email : </label>   
+      <input type="text" placeholder="Enter Email" name="email" required>  
+      <label>Password : </label>   
+      <input type="password" placeholder="Enter Password" name="password" required>  
+      <button type="submit">Login</button>   
+         
+      </div>
     </form>
   </main>
   <!-- Bootstrap JS -->
