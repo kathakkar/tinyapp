@@ -2,7 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cookieParser = require('cookie-parser');
 const bcrypt = require('bcrypt');
-const cookieSession = require('cookie-session')
+const cookieSession = require('cookie-session');
 const app = express();
 const PORT = 8080; // default port 8080
 
@@ -10,6 +10,8 @@ const PORT = 8080; // default port 8080
 
 //Helper Functions
 const { getUserByEmail, getUserById, getUrlsByUserId, generateRandomString } = require('./helpers');
+
+app.use(express.static(__dirname + '/css'));
 
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: true}));
@@ -119,7 +121,7 @@ app.post("/register",(req,res) => {
   if(email !== "" && password !== "") {
     const foundUser = getUserByEmail(email,users);
     if (foundUser) {
-      res.send("<h2>404 - Email address already exist, Click to <a href='/register'>Register</a> to go back on registration page </h2>");
+      res.send("<h2>Email address already exist, Click to <a href='/register'>Register</a> to go back on registration page </h2>");
     } else {
       password = bcrypt.hashSync(password, 10);
       users[id] = {id, email, password};
@@ -128,7 +130,7 @@ app.post("/register",(req,res) => {
       res.redirect("/urls");
     }
   } else {
-    res.send("404 - Email or Password is blank, Click to <a href='/register'>Register</a> to go back on registration page")
+    res.send("Email or Password is blank, Click to <a href='/register'>Register</a> to go back on registration page")
   }
 });
 
