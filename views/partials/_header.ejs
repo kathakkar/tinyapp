@@ -11,7 +11,7 @@
         <a class="nav-item nav-link" href="/urls/new">Create New URL</a>
       </div>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <%=JSON.stringify(foundUser)%>
+        
         <% if(JSON.stringify(foundUser) != '{}'){%>
             <form method="POST" action="/urls/logout" style="margin-left: auto;display:flex;margin-bottom:0px ;"><label class="nav-item nav-link" >Logged In As : <%=foundUser['email']%></label> <button type="submit" class="nav-item nav-link" style="background-color: #28a745;border: 2px solid black;
               border-radius: 5px;">Logout</button></form>
