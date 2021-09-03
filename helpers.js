@@ -8,14 +8,9 @@ const getUserByEmail = function(email,usersDB) {
  return null;
 }
 
-
-
-
 const getUserById = function(id,usersDB){
   for(let key in usersDB){
-    console.log("user key out",usersDB[key]);
     if (key === id){
-      console.log("user key in",usersDB[key]);
      return usersDB[key];
     }
  }
@@ -25,9 +20,8 @@ return null;
 const getUrlsByUserId = function (userid, db) {
   const objUrls = {};
   for(let key in db){
-    if(db[key]["userID"] == userid) {
+    if(db[key]["userID"] === userid) {
       let shortURL = key;
-    //  obj += {[shortURL]: urlDatabase[key]["longURL"]};
       objUrls[shortURL] = db[key]["longURL"];
     }
   }
@@ -49,7 +43,7 @@ const generateRandomString = function () {
     return result.trim();
 }
 
-//module.exports = getUserByEmail1;
+
 module.exports = {
    getUserByEmail, 
    getUserById,
