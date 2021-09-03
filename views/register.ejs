@@ -7,30 +7,27 @@
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
   <title>TinyApp</title>
 </head>
 
 <body>
-  <main style="margin: 1em;">
-    <h3>Registration</h3>
+
+  <main style="max-width: 660px;  margin: auto;margin-top: 50px;">
+    <h3>REGISTRATION</h3>
     <form method="post" action="/register">
-    <table class="table">    
-      <tbody>
-          <tr>
-            <td>Email</td>
-            <td><input type="email" name="email"></td>
-          </tr>
-          <tr>
-            <td> Password</td>
-            <td> <input type="password" name="password"></td>
-          </tr>
-          <tr>
-            <td colspan="2"><button type="submit" class="btn btn-primary">Register</button></td>
-          </tr>
-      </tbody>
-    </table>
+
+    <div class="container">   
+      <label>Email : </label>   
+      <input type="text" placeholder="Enter Email" name="email" required>  
+      <label>Password : </label>   
+      <input type="password" placeholder="Enter Password" name="password" required>  
+      <button type="submit">Register</button>   
+         
+      </div>
     </form>
   </main>
+
   <!-- Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
