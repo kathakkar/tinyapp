@@ -34,6 +34,7 @@ update_url_page: Allow user to update longurl that already have shorturl created
 - cookie-session
 - mocha - chai
 - nodemon (optional)
+- method-overriding
 
 ## Getting Started
 
