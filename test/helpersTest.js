@@ -20,7 +20,6 @@ describe('getUserByEmail', function() {
     const user = getUserByEmail("user@example.com", testUsers);
     const expectedOutput = "userRandomID";
     assert.strictEqual(user["id"], expectedOutput);
-    // Write your assert statement here
   });
   it('shoud return null with non-existence email',function() {
     const user = getUserByEmail("test@example.com", testUsers);
